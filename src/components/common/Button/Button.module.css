@@ -1,0 +1,99 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  border: var(--hairline) solid var(--color-ink);
+  border-radius: 0;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition:
+    background-color var(--dur) var(--ease-out),
+    color var(--dur) var(--ease-out),
+    border-color var(--dur) var(--ease-out),
+    transform var(--dur) var(--ease-out);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  position: relative;
+  z-index: 1;
+}
+
+.arrow {
+  display: inline-flex;
+  transition: transform var(--dur) var(--ease-out);
+}
+.btn:hover .arrow { transform: translateX(4px); }
+
+/* Sizes */
+.size-sm { padding: 0.6rem 1.1rem; font-size: var(--step--1); }
+.size-md { padding: 0.95rem 1.6rem; font-size: var(--step-0); }
+.size-lg { padding: 1.15rem 2.1rem; font-size: var(--step-1); }
+
+/* Variants */
+.primary {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  border-color: var(--color-ink);
+}
+.primary:hover {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+.secondary {
+  background: transparent;
+  color: var(--color-ink);
+  border-color: var(--color-ink);
+}
+.secondary:hover {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--color-ink);
+  border-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+}
+.ghost .label {
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+.ghost:hover { opacity: 0.7; }
+
+/* Inverse variants on dark backgrounds */
+.invPrimary {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  border-color: var(--color-paper);
+}
+.invPrimary:hover {
+  background: transparent;
+  color: var(--color-paper);
+}
+.invSecondary {
+  background: transparent;
+  color: var(--color-paper);
+  border-color: var(--color-paper);
+}
+.invSecondary:hover {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

@@ -1,0 +1,163 @@
+.section {
+  padding: var(--section-y) 0;
+  background: var(--color-paper);
+  border-top: var(--hairline) solid var(--rule);
+}
+
+.shell {
+  display: grid;
+  grid-template-columns: 0.9fr 1.5fr;
+  gap: 0;
+  border: var(--hairline) solid var(--color-ink);
+  background: var(--color-paper-2);
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  border-right: var(--hairline) solid var(--color-ink);
+}
+
+.tab {
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  align-items: center;
+  gap: var(--space-3);
+  padding: clamp(1rem, 2vw, 1.4rem) clamp(1.25rem, 2.5vw, 1.8rem);
+  text-align: left;
+  background: transparent;
+  color: var(--color-ink);
+  border: 0;
+  border-bottom: var(--hairline) solid var(--color-ink);
+  cursor: pointer;
+  transition:
+    background-color var(--dur) var(--ease-out),
+    color var(--dur) var(--ease-out),
+    padding-left var(--dur) var(--ease-out);
+}
+.tab:last-child { border-bottom: 0; }
+.tab:hover { padding-left: calc(clamp(1.25rem, 2.5vw, 1.8rem) + 0.5rem); }
+
+.tabActive {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  position: relative;
+}
+.tabActive::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--tab-accent, var(--color-accent));
+}
+.tabActive .tabNum { color: var(--tab-accent, var(--color-accent)); filter: brightness(1.25); }
+.tabActive .tabTagline { color: var(--color-gray-300); }
+
+.tabNum {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: 0.14em;
+  font-weight: 600;
+}
+.tabName {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.tabTagline {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  justify-self: end;
+}
+
+.panel {
+  padding: clamp(2rem, 4vw, 3.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  animation: fadeIn 520ms var(--ease-out) both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.panelHead {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-bottom: var(--space-4);
+  border-bottom: var(--hairline) solid var(--color-ink);
+}
+.panel .currentNum {
+  color: var(--panel-accent, var(--color-accent));
+  font-weight: 600;
+  filter: brightness(0.9);
+}
+.currentName {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.currentTagline {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.currentSummary {
+  font-size: var(--step-1);
+  line-height: 1.55;
+  color: var(--color-gray-700);
+  max-width: 56ch;
+}
+
+.capsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: var(--hairline) solid var(--color-ink);
+}
+.capRow {
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) 0;
+  border-bottom: var(--hairline) solid var(--rule);
+}
+.capRow:nth-child(odd) { border-right: var(--hairline) solid var(--rule); padding-right: var(--space-4); }
+.capRow:nth-child(even) { padding-left: var(--space-4); }
+
+.capNum {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: 0.14em;
+  color: var(--panel-accent, var(--color-accent));
+  font-weight: 600;
+  filter: brightness(0.9);
+}
+.capName {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  letter-spacing: -0.015em;
+}
+
+@media (max-width: 960px) {
+  .shell { grid-template-columns: 1fr; }
+  .tabs { border-right: 0; border-bottom: var(--hairline) solid var(--color-ink); }
+  .capsGrid { grid-template-columns: 1fr; }
+  .capRow:nth-child(odd) { border-right: 0; padding-right: 0; }
+  .capRow:nth-child(even) { padding-left: 0; }
+}

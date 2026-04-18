@@ -1,0 +1,101 @@
+.footer {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  padding-top: clamp(5rem, 10vw, 9rem);
+  padding-bottom: var(--space-6);
+  border-top: var(--hairline) solid var(--color-ink);
+}
+
+.mega {
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+  border-bottom: var(--hairline) solid var(--color-gray-700);
+}
+
+.lead {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  color: var(--color-paper);
+}
+
+.lead .eyebrow { color: var(--color-gray-400); }
+
+.bigCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: var(--step-4);
+  letter-spacing: -0.02em;
+  margin-top: var(--space-4);
+  color: var(--color-paper);
+  transition: color var(--dur) var(--ease-out), border-color var(--dur) var(--ease-out);
+  padding-bottom: 0.4rem;
+  border-bottom: var(--hairline) solid var(--color-paper);
+  width: fit-content;
+}
+.bigCta:hover {
+  opacity: 1;
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+.arrow { display: inline-flex; transition: transform var(--dur) var(--ease-out); }
+.bigCta:hover .arrow { transform: translateX(6px); }
+
+.cols {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  padding: clamp(3rem, 6vw, 5rem) 0;
+  border-bottom: var(--hairline) solid var(--color-gray-700);
+}
+
+.col { display: flex; flex-direction: column; gap: var(--space-4); }
+.col .eyebrow { color: var(--color-gray-400); }
+
+.note {
+  color: var(--color-gray-300);
+  max-width: 40ch;
+  font-size: var(--step-0);
+  line-height: 1.6;
+}
+
+.list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: var(--space-3); }
+.list a {
+  color: var(--color-paper);
+  font-family: var(--font-sans);
+  font-size: var(--step-0);
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  padding-top: var(--space-5);
+  flex-wrap: wrap;
+}
+
+.mark {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.meta {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gray-400);
+}
+
+@media (max-width: 960px) {
+  .cols { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .cols { grid-template-columns: 1fr; }
+  .bottom { flex-direction: column; align-items: flex-start; }
+}

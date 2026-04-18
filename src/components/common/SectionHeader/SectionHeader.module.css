@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: var(--hairline-strong) solid var(--color-ink);
+}
+
+.index { color: var(--color-ink); font-weight: 600; }
+.eyebrow { color: var(--muted); }
+
+.title { max-width: 22ch; }
+.desc { max-width: 62ch; color: var(--color-gray-700); }
+
+.center { align-items: center; text-align: center; }
+.center .meta { justify-content: center; width: 100%; }
+.center .title, .center .desc { margin-inline: auto; }
+
+.right { align-items: flex-end; text-align: right; }

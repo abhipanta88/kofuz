@@ -1,0 +1,101 @@
+/* =========================================================
+   Kofuz — Design Tokens
+   Monochrome, editorial, bold, structured.
+   ========================================================= */
+
+:root {
+  /* Palette — strictly black / white / gray */
+  --color-ink: #0a0a0a;         /* near-black, primary text/bg on light */
+  --color-ink-2: #1a1a1a;
+  --color-paper: #ffffff;        /* paper white */
+  --color-paper-2: #f6f5f2;      /* warm off-white for editorial feel */
+  --color-gray-900: #161616;
+  --color-gray-800: #2a2a2a;
+  --color-gray-700: #3d3d3d;
+  --color-gray-600: #5a5a5a;
+  --color-gray-500: #7a7a7a;
+  --color-gray-400: #9a9a9a;
+  --color-gray-300: #bcbcbc;
+  --color-gray-200: #d9d9d9;
+  --color-gray-150: #e6e5e2;
+  --color-gray-100: #efeeea;
+  --color-gray-50: #f6f5f2;
+
+  /* Accents — an editorial trio used sparingly.
+     1) Terracotta / burnt sienna — primary accent, creative heat.
+     2) Forest / deep moss — engineering, product, trust.
+     3) Ochre / warm mustard — automation, optimism, archival. */
+  --color-accent:       #c44a2d;  /* terracotta */
+  --color-accent-dark:  #9a3a22;
+  --color-accent-soft:  #ead9cd;
+  --color-accent-tint:  #f7ece4;
+
+  --color-accent-2:       #2f5d48;  /* forest / deep moss */
+  --color-accent-2-dark:  #22453590;
+  --color-accent-2-soft:  #d3dfd8;
+  --color-accent-2-tint:  #edf2ee;
+
+  --color-accent-3:       #c89548;  /* warm ochre */
+  --color-accent-3-dark:  #9a7330;
+  --color-accent-3-soft:  #ecdcbd;
+  --color-accent-3-tint:  #f7efde;
+
+  --color-accent-4:       #1f3a5f;  /* editorial deep navy-ink (rare) */
+
+  /* Semantic */
+  --bg: var(--color-paper-2);
+  --bg-inverse: var(--color-ink);
+  --fg: var(--color-ink);
+  --fg-inverse: var(--color-paper);
+  --muted: var(--color-gray-600);
+  --muted-2: var(--color-gray-500);
+  --rule: var(--color-gray-200);
+  --rule-strong: var(--color-ink);
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Fraunces', 'Times New Roman', Georgia, serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Type scale (fluid) */
+  --step--2: clamp(0.72rem, 0.70rem + 0.12vw, 0.78rem);
+  --step--1: clamp(0.82rem, 0.79rem + 0.18vw, 0.92rem);
+  --step-0:  clamp(0.95rem, 0.92rem + 0.22vw, 1.05rem);
+  --step-1:  clamp(1.10rem, 1.04rem + 0.35vw, 1.25rem);
+  --step-2:  clamp(1.32rem, 1.22rem + 0.55vw, 1.56rem);
+  --step-3:  clamp(1.65rem, 1.45rem + 1.00vw, 2.10rem);
+  --step-4:  clamp(2.10rem, 1.75rem + 1.80vw, 2.90rem);
+  --step-5:  clamp(2.80rem, 2.20rem + 3.00vw, 4.40rem);
+  --step-6:  clamp(3.60rem, 2.60rem + 5.00vw, 6.80rem);
+  --step-7:  clamp(4.40rem, 3.00rem + 7.50vw, 9.00rem);
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+  --space-11: 10rem;
+  --space-12: 12rem;
+
+  /* Layout */
+  --container-max: 1400px;
+  --container-pad: clamp(1.25rem, 4vw, 3rem);
+  --section-y: clamp(5rem, 9vw, 9rem);
+
+  /* Borders */
+  --hairline: 1px;
+  --hairline-strong: 2px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 180ms;
+  --dur: 320ms;
+  --dur-slow: 640ms;
+}

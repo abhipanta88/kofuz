@@ -1,0 +1,47 @@
+.marquee {
+  overflow: hidden;
+  width: 100%;
+  border-top: var(--hairline) solid var(--color-ink);
+  border-bottom: var(--hairline) solid var(--color-ink);
+  padding: 1.1rem 0;
+  background: transparent;
+}
+
+.track {
+  display: flex;
+  gap: 0;
+  width: max-content;
+  animation: slide var(--duration, 45s) linear infinite;
+}
+
+.row {
+  display: flex;
+  gap: 2.5rem;
+  padding-right: 2.5rem;
+  align-items: center;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+.dot {
+  color: var(--color-gray-400);
+  font-family: var(--font-sans);
+  font-size: 0.6em;
+}
+
+@keyframes slide {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track { animation: none; }
+}
