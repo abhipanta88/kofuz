@@ -31,35 +31,30 @@ npm run build
 npm run preview
 ```
 
-## Deploy to Vercel
+## Deploy to Render
 
-The repository is pre-configured for Vercel (see `vercel.json`).
+The repository includes a [Render Blueprint](https://render.com/docs/infrastructure-as-code) at `render.yaml` (static site).
 
-### Option 1 — Dashboard (recommended)
+### Option 1 — Blueprint (recommended)
 
 1. Push this project to a Git repo (GitHub / GitLab / Bitbucket).
-2. Go to https://vercel.com/new and import the repo.
-3. Vercel will auto-detect the **Vite** framework and read `vercel.json`.
-   - Build command: `npm run build`
-   - Output directory: `dist`
-   - Install command: `npm install`
-4. Click **Deploy**. First build typically finishes in under a minute.
+2. In the [Render Dashboard](https://dashboard.render.com/), choose **New** → **Blueprint**, connect the repo, and select `render.yaml`.
+3. Apply the blueprint. Render will create a **Static Site** with:
+   - Build command: `npm install && npm run build`
+   - Publish directory: `dist`
 
-### Option 2 — Vercel CLI
+### Option 2 — Static Site manually
 
-```bash
-npm i -g vercel
-vercel           # first time, answers a few setup questions
-vercel --prod    # deploy to production
-```
+1. **New** → **Static Site**, connect the same repo.
+2. Set **Build Command** to `npm install && npm run build` and **Publish directory** to `dist`.
+3. Add the same **Redirects/Rewrites** and **HTTP Headers** as in `render.yaml` (SPA rewrite to `/index.html`, caching, security headers), or copy them from the file after the first deploy.
 
-### What's included in `vercel.json`
+### What's included in `render.yaml`
 
-- SPA rewrite (`/(.*) → /index.html`) so any future client-side route works.
-- Long-cache immutable headers for `/assets/*` and image/font files.
+- SPA rewrite (`/*` → `/index.html`) for client-side routing.
+- Long-cache immutable headers for `/assets/*` and common image/font extensions.
 - Basic security headers (`X-Content-Type-Options`, `X-Frame-Options`,
   `Referrer-Policy`, `Permissions-Policy`).
-- `cleanUrls: true` for prettier URLs.
 
 ### Environment variables
 
